@@ -31,6 +31,21 @@ public class Address {
         this.principal = true;
     }
 
+    public void atualizaDados(EnderecoData dados){
+        if (dados.logradouro() != null){
+            this.logradouro = dados.logradouro();
+        }
+        if (dados.numero() != null){
+            this.numero = dados.numero();
+        }
+        if (dados.cep() != null){
+            this.cep = dados.cep();
+        }
+        if (dados.cidade() != null){
+            this.cidade = dados.cidade();
+        }
+    }
+
     @Override
     public String toString() {
         return "Address{" +
