@@ -14,28 +14,28 @@ Projeto feito em Java 17 usando Spring Boot 3.0 utilizando Lombok, H2 para persi
 ## 📷 Imagens
 
 > Requisições que podem ser feitas
-![image]()
+![image](https://user-images.githubusercontent.com/43388013/215621629-d405172f-d279-4690-acb8-b2b193fa0a5f.png)
 
 > Cadastrar Pessoa
-![image]()
+![image](https://user-images.githubusercontent.com/43388013/215621658-809fe6d2-fa3d-46a1-9be6-f8b3962f8ff6.png)
 
 > Listar Pessoas
-![image]()
+![image](https://user-images.githubusercontent.com/43388013/215621706-b2873e1d-8a11-43eb-9c27-72cd483981f9.png)
 
 > Consultar uma pessoa
-![image]()
+![image](https://user-images.githubusercontent.com/43388013/215621726-53a75dde-bb00-41c8-b6db-75120d87dd13.png)
 
 > Atualizar dados da pessoa
-![image]()
+![image](https://user-images.githubusercontent.com/43388013/215621752-1e736908-37e0-4190-abee-410d54def28f.png)
 
 > Adicionar Endereço
-![image]()
+![image](https://user-images.githubusercontent.com/43388013/215621796-9bb82a5f-6c58-44b6-bdee-8ff4f62e013d.png)
 
 > Listar Endereços
-![image]()
+![image](https://user-images.githubusercontent.com/43388013/215621820-793df650-0a4e-4d14-a3ba-e230e93ccba8.png)
 
 > Selecionar Endereço como Principal
-![image]()
+![image](https://user-images.githubusercontent.com/43388013/215621839-f07440f7-5690-4c0b-abed-9dbe2d047ed3.png)
 
 ## 💻 Requerimento
 
