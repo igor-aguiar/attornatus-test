@@ -46,6 +46,14 @@ public class Address {
         }
     }
 
+    public void retirarPrincipal(){
+        this.principal = false;
+    }
+
+    public void setPrincipalTrue(){
+        this.principal = true;
+    }
+
     @Override
     public String toString() {
         return "Address{" +

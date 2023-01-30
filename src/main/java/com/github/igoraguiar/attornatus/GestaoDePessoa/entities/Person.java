@@ -2,6 +2,7 @@ package com.github.igoraguiar.attornatus.GestaoDePessoa.entities;
 
 import com.github.igoraguiar.attornatus.GestaoDePessoa.DTO.AtualizacaoPessoaData;
 import com.github.igoraguiar.attornatus.GestaoDePessoa.DTO.EnderecoData;
+import com.github.igoraguiar.attornatus.GestaoDePessoa.DTO.EnderecoDataId;
 import com.github.igoraguiar.attornatus.GestaoDePessoa.DTO.PessoaEnderecoData;
 import jakarta.persistence.*;
 import lombok.*;
@@ -11,7 +12,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Table(name = "pessoas")
@@ -37,8 +37,7 @@ public class Person {
     }
 
     public Address enderecoPrincipal(){
-        Address principal = enderecos.stream().filter(Address::isPrincipal).collect(Collectors.toList()).get(0);
-        return principal;
+        return enderecos.stream().filter(Address::isPrincipal).toList().get(0);
     }
 
     public void atualizaDados(AtualizacaoPessoaData dados){
@@ -58,11 +57,25 @@ public class Person {
         try {
             dataNascimentoDate = sdf.parse(data);
         } catch (ParseException e){
-            return new Date();
+            return this.dataNascimento;
         }
         return dataNascimentoDate;
     }
 
 
+    public void novoEdereco(EnderecoData endereco) {
+        var antigoEndereco = this.enderecoPrincipal();
+        this.enderecos.add(new Address(endereco, this));
+        antigoEndereco.retirarPrincipal();
+    }
 
+    public void novoEnderecoPrincipal(EnderecoDataId endereco) {
+        for (Address e : this.enderecos) {
+            if (e.getId().equals(endereco.id())) {
+                e.setPrincipalTrue();
+            } else {
+                e.retirarPrincipal();
+            }
+        }
+    }
 }

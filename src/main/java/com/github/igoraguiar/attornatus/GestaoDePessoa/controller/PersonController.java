@@ -1,8 +1,6 @@
 package com.github.igoraguiar.attornatus.GestaoDePessoa.controller;
 
-import com.github.igoraguiar.attornatus.GestaoDePessoa.DTO.AtualizacaoPessoaData;
-import com.github.igoraguiar.attornatus.GestaoDePessoa.DTO.PessoaEnderecoData;
-import com.github.igoraguiar.attornatus.GestaoDePessoa.DTO.PessoaEnderecoListagem;
+import com.github.igoraguiar.attornatus.GestaoDePessoa.DTO.*;
 import com.github.igoraguiar.attornatus.GestaoDePessoa.entities.Person;
 import com.github.igoraguiar.attornatus.GestaoDePessoa.repository.PersonRepository;
 import jakarta.transaction.Transactional;
@@ -41,6 +39,26 @@ public class PersonController {
     public void editarPessoa(@RequestBody AtualizacaoPessoaData jsonReq){
         var pessoa = personRepository.getReferenceById(jsonReq.id());
         pessoa.atualizaDados(jsonReq);
+    }
+
+    @PostMapping("/{id}/novoEndereco")
+    @Transactional
+    public void novoEndereco(@RequestBody EnderecoData dados, @PathVariable Long id){
+        var pessoa = personRepository.getReferenceById(id);
+        pessoa.novoEdereco(dados);
+    }
+
+    @GetMapping("/{id}/enderecos")
+    public List<EnderecoDataId> enderecosCadastrados(@PathVariable Long id){
+        var pessoa = personRepository.getReferenceById(id);
+        return pessoa.getEnderecos().stream().map(EnderecoDataId::new).toList();
+    }
+
+    @PutMapping("/{idPessoa}/enderecos")
+    @Transactional
+    public void definirEnderecoPrincipal(@RequestBody EnderecoDataId endereco, @PathVariable Long idPessoa){
+        var pessoa = personRepository.getReferenceById(idPessoa);
+        pessoa.novoEnderecoPrincipal(endereco);
     }
 
 }
