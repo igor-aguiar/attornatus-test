@@ -37,14 +37,14 @@ public class Person {
     }
 
     public Address enderecoPrincipal(){
-        return enderecos.stream().filter(Address::isPrincipal).toList().get(0);
+        return enderecos.stream().filter(Address::isPrincipal).findFirst().orElseThrow(EntityNotFoundException::new);
     }
 
     public void atualizaDados(AtualizacaoPessoaData dados){
-        if (dados.dataNascimento() != null){
+        if (!dados.dataNascimento().isBlank()){
             this.dataNascimento = this.converterDataNascimento(dados.dataNascimento());
         }
-        if (dados.nome() != null){
+        if (!dados.nome().isBlank()){
             this.nome = dados.nome();
         }
         if (dados.endereco() != null){
@@ -57,13 +57,13 @@ public class Person {
         try {
             dataNascimentoDate = sdf.parse(data);
         } catch (ParseException e){
-            return this.dataNascimento;
+            return new Date();
         }
         return dataNascimentoDate;
     }
 
 
-    public void novoEdereco(EnderecoData endereco) {
+    public void novoEndereco(EnderecoData endereco) {
         var antigoEndereco = this.enderecoPrincipal();
         this.enderecos.add(new Address(endereco, this));
         antigoEndereco.retirarPrincipal();
@@ -71,7 +71,7 @@ public class Person {
 
     public void novoEnderecoPrincipal(EnderecoDataId endereco) {
         for (Address e : this.enderecos) {
-            if (e.getId().equals(endereco.id())) {
+            if ((e.getId() == endereco.id())) {
                 e.setPrincipalTrue();
             } else {
                 e.retirarPrincipal();

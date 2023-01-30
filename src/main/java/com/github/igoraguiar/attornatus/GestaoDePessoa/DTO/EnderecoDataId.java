@@ -7,4 +7,5 @@ public record EnderecoDataId(Long id, String logradouro, String cep, String nume
     public EnderecoDataId(Address endereco){
         this(endereco.getId(), endereco.getLogradouro(), endereco.getCep(), endereco.getNumero(), endereco.getCidade());
     }
+
 }

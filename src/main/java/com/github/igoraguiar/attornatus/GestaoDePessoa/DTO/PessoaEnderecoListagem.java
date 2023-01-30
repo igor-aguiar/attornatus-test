@@ -1,9 +1,6 @@
 package com.github.igoraguiar.attornatus.GestaoDePessoa.DTO;
 
-import com.github.igoraguiar.attornatus.GestaoDePessoa.entities.Address;
 import com.github.igoraguiar.attornatus.GestaoDePessoa.entities.Person;
-
-import java.util.List;
 
 public record PessoaEnderecoListagem(Long id, String nome, String dataNascimento, EnderecoListagem endereco) {
 

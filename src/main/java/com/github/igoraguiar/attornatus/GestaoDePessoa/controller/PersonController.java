@@ -4,7 +4,6 @@ import com.github.igoraguiar.attornatus.GestaoDePessoa.DTO.*;
 import com.github.igoraguiar.attornatus.GestaoDePessoa.entities.Person;
 import com.github.igoraguiar.attornatus.GestaoDePessoa.repository.PersonRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -45,7 +44,7 @@ public class PersonController {
     @Transactional
     public void novoEndereco(@RequestBody EnderecoData dados, @PathVariable Long id){
         var pessoa = personRepository.getReferenceById(id);
-        pessoa.novoEdereco(dados);
+        pessoa.novoEndereco(dados);
     }
 
     @GetMapping("/{id}/enderecos")
