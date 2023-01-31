@@ -9,7 +9,16 @@
 > Projeto desenvolvido para o teste da empresa attornatus.
 
 ## 📝 Sobre
-Projeto feito em Java 17 usando Spring Boot 3.0 utilizando Lombok, H2 para persistência, Spring data para uma API de gestão de pessoas, onde será possível adicionar pessoas e recuperar os dados da mesma, assim como adicionar endereços para elas e poder selecionar o endereço principal. 
+Projeto feito em Java 17 usando Spring Boot 3.0 utilizando Lombok, H2 para persistência, Spring data para uma API de gestão de pessoas, onde será possível adicionar pessoas e recuperar os dados da mesma, assim como adicionar endereços para elas e poder selecionar o endereço principal.
+
+## Qualidade de Código
+> Durante a Implementação de uma nova funcionalidade de software solicitada, quais critérios você avalia e implementa para a garantia de qualidade de software?
+
+Estrutura do projeto, diagramação UML e planejamento de relacionamentos, assim como possibilidade de implementação de TDD para um desenvolvimento mais conciso. 
+
+> Em qual etapa da implementação você considera a qualidade de software? 
+ 
+Todas as etapas são importantes de se considerar, desde a concepção, o desenvolvimento e o deploy. Tendo em vista que em definição de arquitetura e planejamento na concepção, testes durante ou antes usando TDD durante a fase de desenvolvimento, e técnincas de CI&CD no deploy para garantir integridade ao produto.
 
 ## 📷 Imagens
 
